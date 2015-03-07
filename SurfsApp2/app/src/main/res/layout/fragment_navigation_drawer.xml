@@ -1,0 +1,47 @@
+<!-- designSpec library ref https://github.com/lucasr/dspec -->
+
+<!--
+
+<org.lucasr.dspec.DesignSpecFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:designSpec="@raw/spec">
+
+-->
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DFDF"
+        tools:context="com.example.stephen.surfsapp.NavigationDrawerFragment">
+
+        <!-- Layout inc. image above the recycle view inside the navigation drawer -->
+        <LinearLayout
+            android:id="@+id/drawer_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FB8C00">
+
+            <ImageView
+
+                android:layout_width="280dp"
+                android:layout_height="140dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_surfsapp" />
+        </LinearLayout>
+
+        <!-- Layout container for recycle view inside the navigation drawer -->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/nav_drawer_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/drawer_image">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+<!--</org.lucasr.dspec.DesignSpecFrameLayout>-->
+

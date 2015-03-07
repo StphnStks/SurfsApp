@@ -1,0 +1,29 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppTheme.Base" >
+
+        <!-- Customize your theme here. -->
+
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/toolbar</item>
+        <item name="colorPrimaryDark">@color/status_bar</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <!--
+            <color name="text_toolbar"></color>
+            <color name="window_background"></color>
+            <color name="navigation_bar"></color>
+        -->
+
+    </style>
+
+    <style name="ToolbarCustomTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textColorPrimary">#034748</item>
+        <item name="android:textColorSecondary">#001021</item>
+    </style>
+
+</resources>

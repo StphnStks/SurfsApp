@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="toolbar">#03A9F4</color>
+    <color name="status_bar">#0288D1</color>
+    <color name="accent">#272838</color>
+
+
+    <!--
+           <color name="text_toolbar"></color>
+           <color name="window_background"></color>
+           <color name="navigation_bar"></color>
+    -->
+
+
+</resources>
