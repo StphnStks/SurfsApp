@@ -10,8 +10,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -30,21 +28,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-
-
-/*
-
-        // spots fragment added to fragment container when activity is created
-        SpotsFragment fragA = new SpotsFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.fragment_container, fragA, "frag");
-        transaction.commit();
-
-*/
-
-
 
         navigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.frag_nav_drawer);
         navigationDrawerFragment.configure((DrawerLayout)findViewById(R.id.nav_drawer_layout), toolbar, R.id.frag_nav_drawer);
@@ -75,7 +58,10 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
         // condition if search icon in toolbar is clicked
         if(id == R.id.search) {
 
+
 //            EditText editText = new EditText(R.id.);
+
+
             Toast.makeText(this, "Clicked " + item.getTitle(), Toast.LENGTH_SHORT).show();
         }
 
@@ -85,37 +71,15 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
     @Override
     public void fragmentTransaction(Fragment frag, int position) {
 
-//        FragmentManager manager = getFragmentManager();
-
-
         Bundle extra = new Bundle();
         extra.putInt("position", position);
         frag.setArguments(extra);
 
-
         FragmentManager manager = getSupportFragmentManager();
-
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.fragment_container, frag);
         transaction.addToBackStack(null);
         transaction.commit();
     }
-
-
-
-
-
-/*
-    @Override
-    public void itemViewClicked(View view, int position) {
-
-        NavigationDrawerFragment a = new NavigationDrawerFragment();
-
-        View navDrawerView = findViewById(R.id.frag_nav_drawer);
-
-        a.drawerLayout.openDrawer(navDrawerView);
-    }
-*/
-
 
 }

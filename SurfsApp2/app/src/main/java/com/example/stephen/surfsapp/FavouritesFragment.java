@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ChartsFragment extends Fragment {
+public class FavouritesFragment extends Fragment {
 
 
-    public ChartsFragment() {
+    public FavouritesFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class ChartsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_charts, container, false);
+        return inflater.inflate(R.layout.fragment_favourites, container, false);
     }
 
 

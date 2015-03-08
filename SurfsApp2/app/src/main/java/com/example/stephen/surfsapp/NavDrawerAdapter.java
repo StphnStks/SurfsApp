@@ -2,15 +2,12 @@ package com.example.stephen.surfsapp;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.Collections;
 import java.util.List;
 
@@ -96,7 +93,7 @@ public class NavDrawerAdapter extends RecyclerView.Adapter<NavDrawerAdapter.Recy
         }
     }
 
-    // an interface for activities & fragments to implement allowing them to handle item view clicks inside the Navigation drawer
+    // an interface the NavigationDrawer fragment implements allowing it to handle item view clicks inside the Navigation drawer
     public interface NavDrawerListener {
         public void itemViewClicked(View view, int position);
     }
