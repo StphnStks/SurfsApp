@@ -40,7 +40,16 @@ public class NavigationDrawerFragment extends Fragment implements NavDrawerAdapt
 
     NavDrawerAdapter navDrawerAdapter;
 
+
+//    int position;
+
+
     Button btnSpots;
+
+
+    // interface reference variable
+    FragmentTransactions fragmentTransactions;
+
 
     public NavigationDrawerFragment() {
         // Required empty public constructor
@@ -88,26 +97,37 @@ public class NavigationDrawerFragment extends Fragment implements NavDrawerAdapt
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // this returns a ref to main activity initializing to the interface property
+        fragmentTransactions = (FragmentTransactions) getActivity();
+
+
 
 
 //        Parcel source = null;
 
 
+
         // spots fragment added to fragment container when activity is created
+
         SpotsFragment spotsFrag = new SpotsFragment();
 
 
-//        Bundle bundle = new Bundle();
-//        bundle.clone();
-//        spotsFrag.setArguments(bundle);
-//        bundle.putString("Drawer layout", drawerLayout.toString());
-//        bundle.putString("Nav Drawer View", navDrawerView.toString());
+//        Bundle extra = new Bundle();
+//        extra.putInt("position", 0);
+//        spotsFrag.setArguments(extra);
+
+
+        fragmentTransactions.fragmentTransaction(spotsFrag, 0);
 
 
 
-        fragmentTransaction(spotsFrag);
+
+//        fragmentTransaction(spotsFrag);
+
 
 //        drawerLayout.openDrawer(navDrawerView);
+
+
     }
 
     public static List<NavDrawerMenu> getNavDrawerTitlesIcons() {
@@ -166,7 +186,6 @@ public class NavigationDrawerFragment extends Fragment implements NavDrawerAdapt
         };
 
         // if the user hasn't seen the drawer and it's doesn't exist then open the drawer
-        // (Note &&) requires to be left with no space to work on API 16 - Jellybean
         if(!userAwareNavDrawer && !existsNavDrawer) {
 
             drawerLayout.openDrawer(navDrawerView);
@@ -197,44 +216,79 @@ public class NavigationDrawerFragment extends Fragment implements NavDrawerAdapt
         return sharedPreferences.getString(nameOfPref, defaultValue);
     }
 
+
     // method handles click events inside the Navigation Drawer
     @Override
     public void itemViewClicked(View view, int position) {
 
-//        int pos = position;
-//        SpotsFragment spotsFrag = new SpotsFragment();
-//        fragmentTransaction(spotsFrag);
+//        setPosition(position);
 
         if(position  == 0) {
             Log.d(" Item clicked at", " position " + position);
             drawerLayout.closeDrawer(navDrawerView);
 
-            Intent intent = new Intent(getActivity(), SubActivity.class);
-            startActivity(intent);
+
+            SpotsFragment spotsFrag = new SpotsFragment();
+
+
+
+//            Bundle extra = new Bundle();
+//            extra.putInt("position", position);
+//            spotsFrag.setArguments(extra);
+
+            fragmentTransactions.fragmentTransaction(spotsFrag, position);
+
+
+//            ChartsFragment chartsFrag = new ChartsFragment();
+
+//            fragmentTransaction(spotsFrag);
         }
         else if(position == 1) {
             Log.d(" Item clicked at", " position " + position);
             drawerLayout.closeDrawer(navDrawerView);
 
-            ChartsFragment chartsFrag = new ChartsFragment();
-            fragmentTransaction(chartsFrag);
+            SpotsFragment spotsFrag = new SpotsFragment();
+            fragmentTransactions.fragmentTransaction(spotsFrag, position);
+
+
+//            Bundle bundle = new Bundle();
+//            bundle.putInt("position", 1);
+//            spotsFrag.setArguments(bundle);
+
+
+//            fragmentTransaction(spotsFrag);
         }
         else if(position == 2) {
             Log.d(" Item clicked at", " position " + position);
             drawerLayout.closeDrawer(navDrawerView);
 
-            TidesFragment tidesFrag = new TidesFragment();
-            fragmentTransaction(tidesFrag);
+
+            SpotsFragment spotsFrag = new SpotsFragment();
+            fragmentTransactions.fragmentTransaction(spotsFrag, position);
+
+
+//            Bundle bundle = new Bundle();
+//            bundle.putInt("position", 2);
+//            spotsFrag.setArguments(bundle);
+
+
+//            TidesFragment tidesFrag = new TidesFragment();
+
+//            SpotsFragment spotsFrag = new SpotsFragment();
+
+//            fragmentTransaction(spotsFrag);
         }
         else if(position == 3) {
             Log.d(" Item clicked at", " position " + position);
             drawerLayout.closeDrawer(navDrawerView);
 
-//            SpotsFragment spotsFrag = new SpotsFragment();
-//            fragmentTransaction(spotsFrag);
+
         }
+
     }
 
+
+/*
     // transaction replaces the container in main activity xml with supplied fragment
     public void fragmentTransaction(Fragment frag) {
 
@@ -244,9 +298,26 @@ public class NavigationDrawerFragment extends Fragment implements NavDrawerAdapt
         transaction.addToBackStack(null);
         transaction.commit();
     }
+*/
 
 
-/*
+//    public void setPosition(int position) {
+//        this.position = position;
+//
+//    }
+
+//    public int getPosition() {
+//        return position;
+//    }
+
+
+    public interface FragmentTransactions {
+
+        public void fragmentTransaction(Fragment frag, int position);
+    }
+
+
+    /*
     public DrawerLayout getNavDrawer() {
 
         return this.drawerLayout;
@@ -262,8 +333,6 @@ public class NavigationDrawerFragment extends Fragment implements NavDrawerAdapt
 //
 //        public void sendNavDrawer(DrawerLayout drawerLayout, View navDrawerView);
 //    }
-
-
 
 
 /*

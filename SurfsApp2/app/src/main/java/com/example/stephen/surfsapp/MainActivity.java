@@ -1,6 +1,7 @@
 package com.example.stephen.surfsapp;
 
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -14,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity { //implements NavDrawerAdapter.NavDrawerListener {
+public class MainActivity extends ActionBarActivity implements NavigationDrawerFragment.FragmentTransactions {
 
     Toolbar toolbar;
 
@@ -80,6 +81,28 @@ public class MainActivity extends ActionBarActivity { //implements NavDrawerAdap
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void fragmentTransaction(Fragment frag, int position) {
+
+//        FragmentManager manager = getFragmentManager();
+
+
+        Bundle extra = new Bundle();
+        extra.putInt("position", position);
+        frag.setArguments(extra);
+
+
+        FragmentManager manager = getSupportFragmentManager();
+
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.fragment_container, frag);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+
+
 
 
 /*

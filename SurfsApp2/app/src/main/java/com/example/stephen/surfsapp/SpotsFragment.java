@@ -1,6 +1,7 @@
 package com.example.stephen.surfsapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -24,38 +25,18 @@ public class SpotsFragment extends Fragment implements View.OnClickListener { //
     int countClicks = 0;
 
 
-    DrawerLayout nav;
-//    View a;
+    // position to hold onto position clicked on the Nav Drawer
+    int position;
 
 
-//    NavigationDrawerFragment navigationDrawerFragment;
-//    DrawerLayout drawerLayout;
-//    View view;
-
-//    String a ,b;
-
-//    int mData;
-
-//    DrawerLayout drawerLayout;
-//    View navDrawerView;
+    // interface reference variable
+    NavigationDrawerFragment.FragmentTransactions fragmentTransactions;
 
     public SpotsFragment() {
         // Required empty public constructor
 
-
-//        mData = source.readInt();
-//        this.drawerLayout = drawerLayout;
-//        this.navDrawerView = navDrawerView;
 //        Bundle args = new Bundle();
 //        setArguments(args);
-
-/*
-        drawerLayout = navigationDrawerFragment.getNavDrawer();
-        view = navigationDrawerFragment.getNavDrawerView();
-
-        this.drawerLayout = drawerLayout;
-        view = view;
-*/
 
     }
 
@@ -65,6 +46,7 @@ public class SpotsFragment extends Fragment implements View.OnClickListener { //
 
         Log.i("Fragment ", "onCreateView called");
 
+        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_spots, container, false);
 
 
@@ -72,44 +54,78 @@ public class SpotsFragment extends Fragment implements View.OnClickListener { //
         btnSpots.setOnClickListener(this);
 
 
-//        nav = (DrawerLayout) getActivity().findViewById(R.id.frag_nav_drawer);
 
-//        View a = getActivity().findViewById(R.id.nav_drawer_layout);
+
 
         return view;
-
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_spots, container, false);
     }
 
 
-/*
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
+        // this returns a ref to main activity initializing to the interface property
+        fragmentTransactions = (NavigationDrawerFragment.FragmentTransactions) getActivity();
+
+
+
+        Bundle extras = getArguments();
+        position = extras.getInt("position");
+        Log.i("Bundle ", " value " + position);
 
 
 //        Bundle arg = getArguments();
 //        a = arg.getString("Drawer Layout");
 //        b = arg.getString("Nav Drawer View");
 
-
     }
-*/
 
 
     @Override
     public void onClick(View v) {
 
-        countClicks ++;
-        Log.i("Btn ", "clicked " + countClicks);
 
-//        nav.openDrawer();
+//        NavigationDrawerFragment a = new NavigationDrawerFragment();
 
 
+        Log.i("Btn ", "onClick " + position);
 
-//        drawerLayout.openDrawer(view);
+//        countClicks ++;
+
+        if(position == 0) {
+            Log.i("Btn 0 ", "clicked " + position);
+
+
+            ChartsFragment chartsFrag = new ChartsFragment();
+            fragmentTransactions.fragmentTransaction(chartsFrag, position);
+
+
+//            a.fragmentTransaction(chartsFrag);
+        }
+        else if(position == 1) {
+            Log.i("Btn 1 ", "clicked " + position);
+
+//            ChartsFragment chartsFrag = new ChartsFragment();
+//            fragmentTransactions.fragmentTransaction(chartsFrag);
+
+
+            TidesFragment tidesFrag = new TidesFragment();
+            fragmentTransactions.fragmentTransaction(tidesFrag, position);
+
+
+        }
+        else if(position == 2) {
+            Log.i("Btn 2 ", "clicked " + position);
+
+            TidesFragment tidesFrag = new TidesFragment();
+            fragmentTransactions.fragmentTransaction(tidesFrag, position);
+
+
+//            a.fragmentTransaction(tidesFrag);
+        }
     }
 
 
