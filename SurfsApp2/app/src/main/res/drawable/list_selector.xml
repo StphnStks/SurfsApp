@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+http://cyrilmottier.com/2011/08/08/listview-tips-tricks-3-create-fancy-listviews/
+
+-->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/list_selector_pressed" android:state_pressed="true" />
+    <item android:drawable="@drawable/list_selector_focussed" android:state_focused="true" />
+    <item android:drawable="@android:color/transparent" />
+
+</selector>
+

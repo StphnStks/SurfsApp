@@ -72,7 +72,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
     public void fragmentTransaction(Fragment frag, int position) {
 
         Bundle extra = new Bundle();
-        extra.putInt("position", position);
+        extra.putInt("pos", position);
         frag.setArguments(extra);
 
         FragmentManager manager = getSupportFragmentManager();

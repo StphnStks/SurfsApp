@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+<string-array name="spots">
+    <item>@string/achill_keel_beach</item>
+    <item>@string/ballybunnion</item>
+    <item>@string/brandon_bay</item>
+    <item>@string/bundoran_the_peak</item>
+    <item>@string/carrownisky</item>
+    <item>@string/castlegregory_dumps</item>
+    <item>@string/easkey_left</item>
+    <item>@string/easkey_right</item>
+    <item>@string/enniscrone</item>
+    <item>@string/inch_reef</item>
+    <item>@string/inch_strand</item>
+    <item>@string/inchydoney</item>
+    <item>@string/lahinch</item>
+    <item>@string/mossies</item>
+    <item>@string/muckross</item>
+    <item>@string/mullaghmore_strand</item>
+    <item>@string/north_malin</item>
+    <item>@string/pollan_bay</item>
+    <item>@string/rossnowlagh</item>
+    <item>@string/strandhill</item>
+    <item>@string/tranmore</item>
+</string-array>
+
+
+<!--
+
+
+<string-array name="menu_options">
+    <item>@string/long_range_forecast</item>
+    <item>@string/charts</item>
+    <item>@string/tides</item>
+</string-array>
+
+
+-->
+
+
+</resources>
