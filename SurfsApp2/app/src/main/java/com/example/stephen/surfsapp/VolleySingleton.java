@@ -30,7 +30,7 @@ public class VolleySingleton {
         imageLoader = new ImageLoader(requestQueue, new ImageLoader.ImageCache() {
 
             // LruCache object this holds references to values, when accessed values moved to head of queue
-            // if cache is full. value at the end of queue is removed
+            // if cache is full, value at the end of queue is removed, (Max memory size of cache)
             private LruCache<String, Bitmap> cache = new LruCache<>((int) (Runtime.getRuntime().maxMemory()/1024/8));
 
             @Override
@@ -61,7 +61,7 @@ public class VolleySingleton {
         return requestQueue;
     }
 
-    // method allows other activities and fragments access to imageLoader
+    // method returns an instance of ImageLoader to other activities and fragments
     public ImageLoader getImageLoader() {
 
         return imageLoader;

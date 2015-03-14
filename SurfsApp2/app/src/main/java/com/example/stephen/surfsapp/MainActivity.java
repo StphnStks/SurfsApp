@@ -71,9 +71,9 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
     @Override
     public void fragmentTransaction(Fragment frag, int position) {
 
-        Bundle extra = new Bundle();
-        extra.putInt("pos", position);
-        frag.setArguments(extra);
+        Bundle bundle = new Bundle();
+        bundle.putInt("pos", position);
+        frag.setArguments(bundle);
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();

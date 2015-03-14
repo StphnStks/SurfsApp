@@ -6,6 +6,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 
 /**
@@ -19,38 +27,23 @@ public class ChartsFragment extends Fragment {
     }
 
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_charts, container, false);
-    }
-
-
-/*
-
     // Check out
-
     // LongRangeForecast Fragment contains code for connection and returning JSON
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        // Volley.newRequestQueue(getActivity());
 
-        // VolleySingleton.getVolleySingleton().getRequestQueue();
+        // Note !! Volley Singleton class working
+        RequestQueue requestQueue = VolleySingleton.getVolleySingleton().getRequestQueue();
 
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
 
+        // http://10.0.2.2:80
 
-        //  http://bohemianfc.com/              // http://php.net/
-                                                                        //        localhost:5000/
-        // 127.0.0.1:5000/surfs/api/v1.0/favourite_spots
-
-                                            // 192.168.1.2:80         // http://127.0.0.1:5000/   // http://10.0.2.2:80
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://5583511a.ngrok.com/", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://267c24a5.ngrok.com/surfs/api/v1.0/spots", new Response.Listener<String>() {
 
             // once page is downloaded get response from onResponse method or ErrorListener if there's an error
             @Override
@@ -75,7 +68,7 @@ public class ChartsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_charts, container, false);
     }
 
- */
+
 
 
 }

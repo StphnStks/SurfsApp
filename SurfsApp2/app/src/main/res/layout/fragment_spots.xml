@@ -1,48 +1,57 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#dc143c"
+    android:orientation="vertical"
     tools:context="com.example.stephen.surfsapp.SpotsFragment">
 
     <!-- android:background="#FFFF00" -->
 
     <!--  android:background="@color/link_text_material_light" -->
 
-    <ListView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@android:id/list"
+
+    <!-- android:id="@+id/list_view"
+
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@android:id/list"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:padding="10dp"
+
+            android:listSelector="@drawable/list_selector"
+            android:dividerHeight="@dimen/abc_action_bar_subtitle_bottom_margin_material"
+            />
+
+       -->
+
+    <!-- android:listSelector="@drawable/list_selector" -->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/spotsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:padding="10dp"
+        >
 
-        android:listSelector="@drawable/list_selector"
-        android:dividerHeight="@dimen/abc_action_bar_subtitle_bottom_margin_material"
-        />
+    </android.support.v7.widget.RecyclerView>
+
 
     <!-- This displays to notify user when there's no data from API -->
     <TextView
+        android:id="@+id/empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/empty"
         android:layout_gravity="center_horizontal|top" />
 
 
     <!-- TODO: Update blank fragment layout -->
-<!--
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Fragment_spots blablablablalbblablablaba" />
-
-        <Button
-            android:id="@+id/btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
--->
 
 
 </LinearLayout>

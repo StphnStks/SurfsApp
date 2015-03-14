@@ -144,12 +144,14 @@ public class NavigationDrawerFragment extends Fragment implements NavDrawerAdapt
             }
         };
 
+        // note null point error showing before commenting out this if
+/*
         // if the user hasn't seen the drawer and it's doesn't exist then open the drawer
         if(!userAwareNavDrawer && !existsNavDrawer) {
 
             drawerLayout.openDrawer(navDrawerView);
         }
-
+*/
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
         // synchronises the navigation drawer with it's toolbar indicator

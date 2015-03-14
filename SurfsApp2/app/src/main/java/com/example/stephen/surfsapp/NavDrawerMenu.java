@@ -9,5 +9,19 @@ public class NavDrawerMenu {
 
     int menuIcon;
     String menuTitle;
-    
+
+/*
+    public NavDrawerMenu() {
+
+    }
+
+    public void setMenuIcon(int menuIcon) {
+        this.menuIcon = menuIcon;
+    }
+
+    public void setMenuTitle(String menuTitle) {
+        this.menuTitle = menuTitle;
+    }
+*/
+
 }

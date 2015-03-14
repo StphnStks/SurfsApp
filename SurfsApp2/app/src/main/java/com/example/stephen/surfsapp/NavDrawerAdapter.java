@@ -2,12 +2,15 @@ package com.example.stephen.surfsapp;
 
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -15,7 +18,7 @@ import java.util.List;
  * Created by Stephen on 01/03/2015.
  *
  * This class is a custom adapter class for the navigation drawer recyclerView creating a view
- * which will be used to bind an icon and title for each row of the navigation drawer options menu
+ * which will be used to bind an icon and title for each recycler_view_row_spots of the navigation drawer options menu
  *
  */
 
@@ -30,12 +33,14 @@ public class NavDrawerAdapter extends RecyclerView.Adapter<NavDrawerAdapter.Recy
 
     NavDrawerListener navDrawerListener;    // field to set listener
 
+
     // initialises the view and list of titles and icons
     public NavDrawerAdapter(Context context, List<NavDrawerMenu> iconsAndTitles) {
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.iconsAndTitles = iconsAndTitles;
     }
+
 
     // returns item view (icon and text) it's type being the inner class
     @Override
@@ -44,7 +49,7 @@ public class NavDrawerAdapter extends RecyclerView.Adapter<NavDrawerAdapter.Recy
         // inflates the layout for the recycler view (icon and text)
         View view = inflater.inflate(R.layout.recycler_view_row, parent, false);
 
-        // initializes the viewHolder, this will contain the row views (populated with menu title icon)
+        // initializes the viewHolder, this will contain the recycler_view_row_spots views (populated with menu title icon)
         RecyclerViewHolder viewHolder = new RecyclerViewHolder(view);
         return viewHolder;
     }
@@ -52,7 +57,7 @@ public class NavDrawerAdapter extends RecyclerView.Adapter<NavDrawerAdapter.Recy
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
 
-        // binding the menu's title and icon to row
+        // binding the menu's title and icon to recycler_view_row_spots
         NavDrawerMenu currentPos = iconsAndTitles.get(position);
         holder.menuTitle.setText(currentPos.menuTitle);
         holder.menuIcon.setImageResource(currentPos.menuIcon);
