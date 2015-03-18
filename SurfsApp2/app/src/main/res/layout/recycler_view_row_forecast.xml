@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF555"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    >
+
+<!--
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView1"
+        android:layout_toEndOf="@+id/textView1"
+        android:layout_alignBaseline="@+id/textView1"
+        />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignBaseline="@+id/textView1"
+        />
+-->
+
+    <TextView
+        android:id="@+id/textViewDayDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+
+
+        android:layout_below="@+id/textView1"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewTime"
+        android:padding="10dp"
+
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textViewDayDate"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewWaveHeight"
+        android:padding="1dp"
+
+        android:layout_toEndOf="@+id/textViewTime"
+        android:layout_toRightOf="@+id/textViewTime"
+        android:layout_alignBaseline="@+id/textViewTime"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewWavePeriod"
+        android:padding="1dp"
+
+        android:layout_toEndOf="@+id/textViewWaveHeight"
+        android:layout_toRightOf="@+id/textViewWaveHeight"
+        android:layout_alignBaseline="@+id/textViewTime"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewWaveDir"
+        android:padding="1dp"
+
+        android:layout_toEndOf="@+id/textViewWavePeriod"
+        android:layout_toRightOf="@+id/textViewWavePeriod"
+        android:layout_alignBaseline="@+id/textViewTime"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewWindSpeed"
+        android:padding="1dp"
+
+        android:layout_toLeftOf="@+id/textViewGust"
+        android:layout_alignBaseline="@+id/textViewTime"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewGust"
+        android:padding="1dp"
+
+        android:layout_toLeftOf="@+id/textViewWindDir"
+        android:layout_alignBaseline="@+id/textViewTime"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewWindDir"
+        android:padding="1dp"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@+id/textViewTime"
+        />
+
+    <!--
+
+    android:layout_toRightOf="@+id/textViewGust"
+    android:layout_toEndOf="@+id/textViewGust"
+
+        android:text="Day / Date"
+        android:text="Wave"
+        android:text="Wind / Gusts"
+        android:text="Mon 1st"
+        android:text="6am"
+        android:text="5ft"
+        android:text="12s"
+        android:text="S Dir"
+        android:text="8mph"
+        android:text="W Dir"
+    -->
+
+</RelativeLayout>
