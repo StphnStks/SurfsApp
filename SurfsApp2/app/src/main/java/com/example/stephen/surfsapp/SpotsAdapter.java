@@ -26,6 +26,7 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.RecyclerView
 
     public SpotsAdapter(Context context) {
 
+        // initialize layout inflater with context passed into constructor
         layoutInflater = layoutInflater.from(context);
     }
 
@@ -79,8 +80,8 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.RecyclerView
         public RecyclerViewHolderSpots(View itemView) {
             super(itemView);
 
+            // get hold of widget in xml file, set listener on view
             spotName = (TextView) itemView.findViewById(R.id.textView);
-
             itemView.setOnClickListener(this);
         }
 

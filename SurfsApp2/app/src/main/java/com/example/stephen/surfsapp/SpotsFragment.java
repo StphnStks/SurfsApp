@@ -9,15 +9,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 
@@ -42,7 +44,7 @@ public class SpotsFragment extends Fragment implements NavDrawerAdapter.NavDrawe
     // private ImageLoader imageLoader; // and loading an Image
 
 
-    public static final String URL_SURFS_API_SPOTS="http://2345c0ba.ngrok.com/surfs/api/v1.0/spots";
+    public static final String URL_SURFS_API_SPOTS="http://49605095.ngrok.com/surfs/api/v1.0/spots";
 
     private ArrayList<Spot> listSpots;
 
@@ -60,18 +62,15 @@ public class SpotsFragment extends Fragment implements NavDrawerAdapter.NavDrawe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.d("On Create", " is called");
-
         volleySingleton = VolleySingleton.getVolleySingleton();
         requestQueue = volleySingleton.getRequestQueue();
-
     }
 
 
     private void jsonRequestGet() {
 
         // create a JSON request, includes GET request, URL and anonymous listeners for response and error response
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL_SURFS_API_SPOTS, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL_SURFS_API_SPOTS, (JSONObject)null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject jsonResponse) {
@@ -88,6 +87,7 @@ public class SpotsFragment extends Fragment implements NavDrawerAdapter.NavDrawe
 
         // add to the JSON request to Queue
         requestQueue.add(jsonObjectRequest);
+
     }
 
 
@@ -104,7 +104,7 @@ public class SpotsFragment extends Fragment implements NavDrawerAdapter.NavDrawe
 
             JSONArray spotsArray = jsonResponse.getJSONArray("spots");
 
-            Toast.makeText(getActivity(), "JSON Response Parse " + spotsArray, Toast.LENGTH_LONG).show();
+//            Toast.makeText(getActivity(), "JSON Response Parse " + spotsArray, Toast.LENGTH_LONG).show();
             Log.e("JSON Array ", "" + spotsArray);
 
             // adds the JSONArray contents to a
@@ -173,62 +173,25 @@ public class SpotsFragment extends Fragment implements NavDrawerAdapter.NavDrawe
             ForecastFragment foreFrag = new ForecastFragment();
             fragmentTransactions.fragmentTransaction(foreFrag, pos);
         }
+
+
+    /*
         else if(pos == 1) {
             Log.i("Btn 1 ", "clicked " + pos);
 
             ChartsFragment chartsFrag = new ChartsFragment();
             fragmentTransactions.fragmentTransaction(chartsFrag, pos);
         }
-        else if(pos == 2) {
+    */
+
+
+        else if(pos == 4) {
             Log.i("Btn 2 ", "clicked " + pos);
 
             TidesFragment tidesFrag = new TidesFragment();
             fragmentTransactions.fragmentTransaction(tidesFrag, pos);
         }
     }
-
-
-/*
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-        if (pos == 0) {
-            Log.i("Btn 0 ", "clicked " + pos);
-
-            ForecastFragment foreFrag = new ForecastFragment();
-            fragmentTransactions.fragmentTransaction(foreFrag, pos);
-        } else if (pos == 1) {
-            Log.i("Btn 1 ", "clicked " + pos);
-
-            ChartsFragment chartsFrag = new ChartsFragment();
-            fragmentTransactions.fragmentTransaction(chartsFrag, pos);
-        } else if (pos == 2) {
-            Log.i("Btn 2 ", "clicked " + pos);
-
-            TidesFragment tidesFrag = new TidesFragment();
-            fragmentTransactions.fragmentTransaction(tidesFrag, pos);
-        }
-    }
-*/
-
-
-
-/*
-   // Use for position of List to return data for spot in list
-
-        if(position == 0){
-
-            Log.i("Hello", "The Peak Bundoran");
-        }
-        else{
-            Log.i("Hello", "Other Clicked");
-        }
-*/
-
-//    }
-
-
 }
 
 
@@ -329,52 +292,6 @@ package com.surfsapp.stephen.surfsapp;
 
     }
 
-    class MyAdapter extends FragmentPagerAdapter {
 
-        Fragment newFrag = null;
-
-        public MyAdapter(FragmentManager fragMan) {
-            super(fragMan);
-        }
-
-
-        @Override
-        public Fragment getItem(int pos) {
-
-            Log.d("Ste", "get item called");
-
-            if(pos == 0)
-                newFrag = new MyListFragment();
-
-            if(pos == 1) {
-
-                newFrag = new ChartsFragment();
-
-            if(pos == 2)
-                newFrag = new LastSpotsFragment();
-
-            return newFrag;
-        }
-
-        @Override
-        public int getCount() {
-            Log.d("Ste", "get count called");
-            return 3;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int pos) {
-
-            if(pos == 0)
-                return "Spots";
-            if(pos == 1)
-                return "Charts";
-            if(pos == 2)
-                return "Last Spots";
-
-            return null;
-        }
-    }
-}
 
 */

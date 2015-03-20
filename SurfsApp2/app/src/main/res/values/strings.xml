@@ -15,29 +15,16 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-    <!-- Array values for spots -->
-    <string name="achill_keel_beach">Achill Keel Beach</string>
-    <string name="ballybunnion">Ballybunnion</string>
-    <string name="brandon_bay">Brandon Bay</string>
-    <string name="bundoran_the_peak">Bundoran The Peak</string>
-    <string name="carrownisky">Carrownisky</string>
-    <string name="castlegregory_dumps">Castlegregory Dumps</string>
-    <string name="dunfanaghy">Dunfanaghy</string>
-    <string name="easkey_left">Easkey Left</string>
-    <string name="easkey_right">Easkey Right</string>
-    <string name="enniscrone">Enniscrone</string>
-    <string name="inch_reef">Inch Reef</string>
-    <string name="inch_strand">Inch Strand</string>
-    <string name="inchydoney">Inchydoney</string>
-    <string name="lahinch">Lahinch</string>
-    <string name="mossies">Mossies</string>
-    <string name="muckross">Muckross</string>
-    <string name="mullaghmore_strand">Mullaghmore Strand</string>
-    <string name="north_malin">North Malin</string>
-    <string name="pollan_bay">Pollan Bay</string>
-    <string name="rossnowlagh">Rossnowlagh</string>
-    <string name="strandhill">Strandhill</string>
-    <string name="tranmore">Tranmore</string>
+
+<!--
+        Pager Adapter tabs
+
+    <string-array name="fixes_tabs">
+        <item>Tab 1</item>
+        <item>Tab 2</item>
+        <item>Tab 3</item>
+    </string-array>
+-->
 
 
 <!--

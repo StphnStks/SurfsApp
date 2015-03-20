@@ -1,11 +1,72 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="#bbff00"
     tools:context="com.example.stephen.surfsapp.ChartsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="Fragment Charts" />
 
-</FrameLayout>
+<!-- Was being used for ViewPager for tabs not implementing tabs instead nav drawer
+
+    <com.example.stephen.surfsapp.tab_layouts.SlidingTabLayout
+        android:id="@+id/fixed_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentTop="true" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+-->
+
+    <!--
+
+        height 0dp
+        weight 1
+    -->
+
+    <ImageView
+        android:id="@+id/imageChart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
+
+    <Button
+        android:id="@+id/btn_previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:layout_alignParentLeft="true"
+        android:text="Previous" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:layout_alignParentRight="true"
+        android:text="Next" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_previous"
+        android:layout_toEndOf="@+id/btn_previous"
+        android:layout_toLeftOf="@+id/btn_next"
+        android:layout_toRightOf="@+id/btn_previous" />
+
+    <!--
+        <VideoView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/videoView"
+            android:layout_gravity="left|center_vertical" />
+    -->
+
+</RelativeLayout>

@@ -6,10 +6,13 @@ import android.content.Context;
 
 /**
  * Created by Stephen on 06/03/2015.
+ *
+ * Custom Application class to get hold of the Application context
+ * used by request queue inside VolleySingleton constructor
  */
 public class MyApplication extends Application {
 
-    // static member of Application, initialised in onCreate
+    // static ref of  MyApplication, initialised in onCreate
     private static MyApplication myApplication;
 
     @Override

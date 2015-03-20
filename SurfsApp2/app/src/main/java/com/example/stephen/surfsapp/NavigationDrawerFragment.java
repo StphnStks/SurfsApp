@@ -92,8 +92,8 @@ public class NavigationDrawerFragment extends Fragment implements NavDrawerAdapt
     public static List<NavDrawerMenu> getNavDrawerTitlesIcons() {
 
         List<NavDrawerMenu> titleIconRows = new ArrayList<>();
-        int[] icons = {R.drawable.ic_search, R.drawable.ic_search, R.drawable.ic_search, R.drawable.ic_search, R.drawable.ic_search};
-        String [] titles = {"Forecast", "Charts", "Tides", "Favourites", "Last Spots"};
+        int[] icons = {R.drawable.ic_search, R.drawable.ic_search, R.drawable.ic_search, R.drawable.ic_search, R.drawable.ic_search, R.drawable.ic_search, R.drawable.ic_search};
+        String [] titles = {"Forecast", "Wave Height", "Wave Period", "Wind Speed / Dir", "Tides", "Favourites", "Last Spots"};
 
         for(int i=0; i < icons.length && i < titles.length; i++) {
 
@@ -144,6 +144,8 @@ public class NavigationDrawerFragment extends Fragment implements NavDrawerAdapt
             }
         };
 
+
+
         // note null point error showing before commenting out this if
 /*
         // if the user hasn't seen the drawer and it's doesn't exist then open the drawer
@@ -152,6 +154,8 @@ public class NavigationDrawerFragment extends Fragment implements NavDrawerAdapt
             drawerLayout.openDrawer(navDrawerView);
         }
 */
+
+
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
         // synchronises the navigation drawer with it's toolbar indicator
@@ -181,21 +185,42 @@ public class NavigationDrawerFragment extends Fragment implements NavDrawerAdapt
     @Override
     public void itemViewClicked(View view, int position) {
 
-        if(position  == 0 || position == 1 || position == 2) {
+        if(position  == 0 || position == 4) {
             Log.d(" Item clicked at", " pos " + position);
             drawerLayout.closeDrawer(navDrawerView);
 
             SpotsFragment spotsFrag = new SpotsFragment();
             fragmentTransactions.fragmentTransaction(spotsFrag, position);
         }
+        else if(position == 1) {
+            drawerLayout.closeDrawer(navDrawerView);
+
+            ChartsFragment chartsFrag = new ChartsFragment();
+            fragmentTransactions.fragmentTransaction(chartsFrag, position);
+        }
+        else if(position == 2) {
+            drawerLayout.closeDrawer(navDrawerView);
+
+
+        }
         else if(position == 3) {
+            drawerLayout.closeDrawer(navDrawerView);
+
+
+        }
+        else if(position == 4) {
+            drawerLayout.closeDrawer(navDrawerView);
+
+
+        }
+        else if(position == 5) {
             Log.d(" Item clicked at", " pos " + position);
             drawerLayout.closeDrawer(navDrawerView);
 
             FavouritesFragment favFrag = new FavouritesFragment();
             fragmentTransactions.fragmentTransaction(favFrag, position);
         }
-        else if(position == 4) {
+        else if(position == 6) {
             Log.d(" Item clicked at", " pos " + position);
             drawerLayout.closeDrawer(navDrawerView);
 

@@ -7,4 +7,6 @@
     app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
     app:theme="@style/ToolbarCustomTheme">
 
+    <!-- layout_height= ?android:attr/actionBarSize -->
+
 </android.support.v7.widget.Toolbar>
