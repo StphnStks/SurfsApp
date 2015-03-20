@@ -168,25 +168,13 @@ public class SpotsFragment extends Fragment implements NavDrawerAdapter.NavDrawe
     public void itemViewClicked(View view, int position) {
 
         if(pos == 0) {
-            Log.i("Btn 0 ", "clicked " + pos);
+//            Log.i("Btn 0 ", "clicked " + pos);
 
             ForecastFragment foreFrag = new ForecastFragment();
             fragmentTransactions.fragmentTransaction(foreFrag, pos);
         }
-
-
-    /*
-        else if(pos == 1) {
-            Log.i("Btn 1 ", "clicked " + pos);
-
-            ChartsFragment chartsFrag = new ChartsFragment();
-            fragmentTransactions.fragmentTransaction(chartsFrag, pos);
-        }
-    */
-
-
         else if(pos == 4) {
-            Log.i("Btn 2 ", "clicked " + pos);
+//            Log.i("Btn 2 ", "clicked " + pos);
 
             TidesFragment tidesFrag = new TidesFragment();
             fragmentTransactions.fragmentTransaction(tidesFrag, pos);
@@ -194,104 +182,23 @@ public class SpotsFragment extends Fragment implements NavDrawerAdapter.NavDrawe
     }
 }
 
-
-
-// From Spots Activity use this for Charts Fragment to implement Page Viewer
-
-// Also see Charts and MyAdapterCharts from FYP project and Charts and Spots.xml files for ViewPager
-///////////////////////////////////////////////////////////////////////////////////
-
 /*
-package com.surfsapp.stephen.surfsapp;
-
-        import android.content.Context;
-        import android.content.Intent;
-        import android.net.Uri;
-        import android.os.Bundle;
-        import android.support.v4.app.Fragment;
-        import android.support.v4.app.FragmentManager;
-        import android.support.v4.app.FragmentPagerAdapter;
-        import android.support.v4.view.ViewPager;
-        import android.support.v7.app.ActionBarActivity;
-        import android.util.Log;
-        import android.view.Menu;
-        import android.view.MenuItem;
-
-        import com.android.volley.toolbox.Volley;
-
-
-
-//public class Spots extends ActionBarActivity implements MyListFragment.OnFragmentInteractionListener, ChartsFragment.OnFragmentInteractionListener, LastSpotsFragment.OnFragmentInteractionListener {
-
+    FragmentManager fragMan = getSupportFragmentManager();
     ViewPager viewPager = null;
 
 
     //instantiate a db object
     // TaskListDatabase task = new TaskListDatabase(this);
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spots);
-
-        viewPager = (ViewPager) findViewById(R.id.pager_switch_fragments);
-        FragmentManager fragMan = getSupportFragmentManager();
-
-        viewPager.setAdapter(new MyAdapter(fragMan));
-
-
-        /*
-
-        //try catch statement to open database
-        try {
-            task.open();
-            Log.i("Db", "Opened");
-        }
-        catch (SQLException sqlExc) {
-
-        }
-
-        */
-
-/*
+    //try catch statement to open database
+    try {
+        task.open();
+        Log.i("Db", "Opened");
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.spots_actionbar, menu);
-
-//        MenuInflater spotsActionBar = getMenuInflater();
-//        spotsActionBar.inflate(R.menu.menu_spots, menu);
-
-        return (super.onCreateOptionsMenu(menu));
-
-//        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
-    // this method comes from the interface inside MyListFragment in FYP project
-    @Override
-    public void onFragmentInteraction(Uri uri) {
+    catch (SQLException sqlExc) {
 
     }
-
-
 
 */
+
+

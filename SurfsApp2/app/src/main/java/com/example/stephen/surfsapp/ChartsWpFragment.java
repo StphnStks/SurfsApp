@@ -25,10 +25,11 @@ import org.json.JSONObject;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ChartsFragment extends Fragment implements View.OnClickListener {
+public class ChartsWpFragment extends Fragment implements View.OnClickListener {
+
 
     // surfs/api/v1.0/        marine_forecast_data                    get_images_sw
-    private static final String URL_SURFS_API_CHARTS = "http://49605095.ngrok.com/";
+    private static final String URL_SURFS_API_CHARTS = "http://49605095.ngrok.com/1";
 
     private RequestQueue requestQueue;
 
@@ -40,7 +41,7 @@ public class ChartsFragment extends Fragment implements View.OnClickListener {
     private int counter = 0;
 
 
-    public ChartsFragment() {
+    public ChartsWpFragment() {
         // Required empty public constructor
     }
 
@@ -57,9 +58,8 @@ public class ChartsFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_charts, container, false);
+        View view = inflater.inflate(R.layout.fragment_charts_wp, container, false);
 
         imageView = (ImageView) view.findViewById(R.id.imageChart);
 
@@ -73,10 +73,9 @@ public class ChartsFragment extends Fragment implements View.OnClickListener {
         jsonRequestGet();
 
 
-        // http://10.0.2.2:80
-
         return view;
     }
+
 
     private void jsonRequestGet() {
 
@@ -110,9 +109,7 @@ public class ChartsFragment extends Fragment implements View.OnClickListener {
         try {
             Log.e("Inside try ", "statement");
 
-//            JSONObject jsonObject = jsonResponse.getJSONObject("urls");
-
-            JSONArray jsonArray = (JSONArray) jsonResponse.get("urls");
+            JSONArray jsonArray = (JSONArray) jsonResponse.get("urls_wp");
 
             images = new String[jsonArray.length()];
 
@@ -139,18 +136,18 @@ public class ChartsFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-            if(btnNext == v && counter <=6) {
-                Picasso.with(getActivity()).load(imgSw.getSwImg(images[++counter])).into(imageView);
+        if(btnNext == v && counter <=6) {
+            Picasso.with(getActivity()).load(imgSw.getSwImg(images[++counter])).into(imageView);
 
 //                Toast.makeText(getActivity(), "Next clicked", Toast.LENGTH_LONG).show();
-            }
-            if(btnPrev == v && counter >= 1) {
-                Picasso.with(getActivity()).load(imgSw.getSwImg(images[--counter])).into(imageView);
+        }
+        if(btnPrev == v && counter >= 1) {
+            Picasso.with(getActivity()).load(imgSw.getSwImg(images[--counter])).into(imageView);
 
 //                Toast.makeText(getActivity(), "Previous clicked", Toast.LENGTH_LONG).show();
-            }
-            else
-                Log.i("End of ", "array");
+        }
+        else
+            Log.i("End of ", "array");
 
     }
 

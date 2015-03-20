@@ -2,18 +2,18 @@ package com.example.stephen.surfsapp;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,7 +93,7 @@ public class NavigationDrawerFragment extends Fragment implements NavDrawerAdapt
 
         List<NavDrawerMenu> titleIconRows = new ArrayList<>();
         int[] icons = {R.drawable.ic_search, R.drawable.ic_search, R.drawable.ic_search, R.drawable.ic_search, R.drawable.ic_search, R.drawable.ic_search, R.drawable.ic_search};
-        String [] titles = {"Forecast", "Wave Height", "Wave Period", "Wind Speed / Dir", "Tides", "Favourites", "Last Spots"};
+        String [] titles = {"Forecast", "Wave Height", "Wave Period", "Wind Speed & Direction", "Tides", "Favourites", "Last Spots"};
 
         for(int i=0; i < icons.length && i < titles.length; i++) {
 
@@ -186,44 +186,35 @@ public class NavigationDrawerFragment extends Fragment implements NavDrawerAdapt
     public void itemViewClicked(View view, int position) {
 
         if(position  == 0 || position == 4) {
-            Log.d(" Item clicked at", " pos " + position);
+//            Log.d(" Item clicked at", " pos " + position);
             drawerLayout.closeDrawer(navDrawerView);
-
             SpotsFragment spotsFrag = new SpotsFragment();
             fragmentTransactions.fragmentTransaction(spotsFrag, position);
         }
         else if(position == 1) {
             drawerLayout.closeDrawer(navDrawerView);
-
             ChartsFragment chartsFrag = new ChartsFragment();
             fragmentTransactions.fragmentTransaction(chartsFrag, position);
         }
         else if(position == 2) {
             drawerLayout.closeDrawer(navDrawerView);
-
-
+            ChartsWpFragment chartWindPeriod = new ChartsWpFragment();
+            fragmentTransactions.fragmentTransaction(chartWindPeriod, position);
         }
         else if(position == 3) {
             drawerLayout.closeDrawer(navDrawerView);
-
-
-        }
-        else if(position == 4) {
-            drawerLayout.closeDrawer(navDrawerView);
-
-
+            ChartsWsFragment chartsWindSpeed = new ChartsWsFragment();
+            fragmentTransactions.fragmentTransaction(chartsWindSpeed, position);
         }
         else if(position == 5) {
-            Log.d(" Item clicked at", " pos " + position);
+//            Log.d(" Item clicked at", " pos " + position);
             drawerLayout.closeDrawer(navDrawerView);
-
             FavouritesFragment favFrag = new FavouritesFragment();
             fragmentTransactions.fragmentTransaction(favFrag, position);
         }
         else if(position == 6) {
-            Log.d(" Item clicked at", " pos " + position);
+//            Log.d(" Item clicked at", " pos " + position);
             drawerLayout.closeDrawer(navDrawerView);
-
             LastSpotsFragment lastSpotFrag = new LastSpotsFragment();
             fragmentTransactions.fragmentTransaction(lastSpotFrag, position);
         }
