@@ -10,20 +10,6 @@ except ImportError:
 app = Flask(__name__)
 
 
-favourite_spots = [
-    {
-        'County': 'Donegal',
-        'Spot': 'The Peak',
-        'Tide': 'Low',
-        'Swell Dir': 'W',
-        'Swell Reported': 4,
-        'Wind Dir': 'E',
-        'Wind Speed': 8,
-        'Swell Period': 12
-    }
-]
-
-
 spots_array = {
     'spots': ['Achill Keel Beach' , 'Ballybunnion', 'Brandon Bay', 'Bundoran The Peak', 'Carrownisky', 'Castlegregory Dumps',
              'Dunfanaghy', 'Easkey Left', 'Easkey Right', 'Enniscrone', 'Inch Reef', 'Inch Strand', 'Inchydoney', 'Lahinch',
@@ -32,70 +18,54 @@ spots_array = {
 }
 
 
-# get_images_sw
+# get images swell height
 @app.route('/', methods=['GET'])
-def get_picture():
+def get_wave_height_charts():
 
-    # index = 0
-    # amount = 2
-    # c = '01'
-    # while index < amount:     # index + 1     # c + '1'
+    url = 'http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_gb/sw_frame_'
+    wave_height = []
 
-    urls = []
-    url_1 = 'http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_001.png'
-    url_2 = 'http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_002.png'
-    url_3 = 'http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_003.png'
-    url_4 = 'http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_004.png'
-    url_5 = 'http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_005.png'
-    url_6 = 'http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_006.png'
-    url_7 = 'http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_007.png'
-    url_8 = 'http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_008.png'
+    for i in range(1, 50):
+        new_url = url + "{:03d}".format(i) + ".png"
+        wave_height.append(new_url)
+        i += 1
 
-    urls.append(url_1)
-    urls.append(url_2)
-    urls.append(url_3)
-    urls.append(url_4)
-    urls.append(url_5)
-    urls.append(url_6)
-    urls.append(url_7)
-    urls.append(url_8)
-
-    return jsonify({'urls': urls})
-
-    '''
-    url_1 = "http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_001.png"
-    response_1 = requests.get(url_1)
-
-    url_2 = "http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_002.png"
-    response_2 = requests.get(url_2)
-
-    url_3 = "http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_003.png"
-    response_3 = requests.get(url_3)
-
-    urls = [response_1, response_2, response_3]
-    '''
-
-    '''
-    urls.append(response_1)
-    urls.append(response_2)
-    urls.append(response_3)
-
-    urls.append({
-
-        'sw_1': response_1,
-        'sw_2': response_2,
-        'sw_3': response_3
-    })
-    '''
-
-    '''
-    'sw_1': 'http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_001.png',
-    'sw_2': 'http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_002.png',
-    'sw_3': 'http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_frame_003.png'
-    '''
+    return jsonify({'urls': wave_height})
 
 
+# get images wave period and direction
+@app.route('/1', methods=['GET'])
+def get_wave_period_dir_charts():
 
+    url = "http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_gb/wp_frame_"
+    wave_period_dir = []
+
+    for i in range(1, 50):
+
+        new_url = url + "{:03d}".format(i) + ".png"
+        wave_period_dir.append(new_url)
+        i += 1
+
+    return jsonify({'urls_wp': wave_period_dir})
+
+
+# get images wind speed and direction
+@app.route('/2', methods=['GET'])
+def get_wind_speed_dir_charts():
+
+    url = "http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_gb/ws_frame_"
+    wind_speed_dir = []
+
+    for i in range(1, 50):
+
+        new_url = url + "{:03d}".format(i) + ".png"
+        wind_speed_dir.append(new_url)
+        i += 1
+
+    return jsonify({'urls_ws_dir': wind_speed_dir})
+
+
+'''
 @app.route('/marine_forecast_data', methods=['GET'])
 def get_marine_inst_forecast_data():
 
@@ -107,17 +77,24 @@ def get_marine_inst_forecast_data():
     data = json.loads(response.content)
 
     return jsonify(data), 200
+'''
 
 
+# get forecast data
 @app.route('/test')
 def test():
+
     url = "http://erddap2.marine.ie/erddap/tabledap/IWBNetwork.json?station_id,time,WindDirection,WindSpeed,Gust," \
           "WaveHeight,WavePeriod,MeanWaveDirection&time>=2015-03-07T00:00:00Z"
 
+    ''' New Url 6 days in advance forecast excluding wind conditions
+
+
+       'http://erddap.marine.ie/erddap/tabledap/IMI-WaveBuoyForecast.json?time,longitude,latitude,stationID,significant_wave_height,mean_wave_period,mean_wave_direction&time>=2015-03-14T00:00:00Z'
+    '''
+
     r = requests.get(url)
     data = json.loads(r.content)
-
-    # parsed_data = []
 
     station_id_m2 = get_station_m2_data(data)
 
@@ -168,12 +145,6 @@ def get_marine_inst_tidal_data():
 def get_spots():
 
     return jsonify(spots_array)
-
-
-@app.route('/surfs/api/v1.0/favourite_spots', methods=['GET'])
-def get_fav_spots():
-
-    return jsonify({'favourite_spots': favourite_spots})
 
 
 @app.route('/main')
