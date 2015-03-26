@@ -19,7 +19,7 @@ spots_array = {
 
 
 # get images swell height
-@app.route('/', methods=['GET'])
+@app.route('/surfs/api/v1.0/get_wave_height_charts', methods=['GET'])
 def get_wave_height_charts():
 
     url = 'http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_gb/sw_frame_'
@@ -34,7 +34,7 @@ def get_wave_height_charts():
 
 
 # get images wave period and direction
-@app.route('/1', methods=['GET'])
+@app.route('/surfs/api/v1.0/get_wave_period_dir_charts', methods=['GET'])
 def get_wave_period_dir_charts():
 
     url = "http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_gb/wp_frame_"
@@ -50,7 +50,7 @@ def get_wave_period_dir_charts():
 
 
 # get images wind speed and direction
-@app.route('/2', methods=['GET'])
+@app.route('/surfs/api/v1.0/get_wind_speed_dir_charts', methods=['GET'])
 def get_wind_speed_dir_charts():
 
     url = "http://webapps.marine.ie/CMSWeb/mi/OSS/images/sw/sw_gb/ws_frame_"
@@ -65,33 +65,12 @@ def get_wind_speed_dir_charts():
     return jsonify({'urls_ws_dir': wind_speed_dir})
 
 
-'''
-@app.route('/marine_forecast_data', methods=['GET'])
-def get_marine_inst_forecast_data():
-
-    url = 'http://erddap2.marine.ie/erddap/tabledap/IWBNetwork.json?station_id,time,WindDirection,WindSpeed,Gust,' \
-          'WaveHeight,WavePeriod,MeanWaveDirection&time>=2015-03-07T00:00:00Z'
-
-    response = requests.get(url)
-
-    data = json.loads(response.content)
-
-    return jsonify(data), 200
-'''
-
-
 # get forecast data
-@app.route('/test')
-def test():
+@app.route('/surfs/api/v1.0/get_forecast_data')
+def get_forecast_data():
 
     url = "http://erddap2.marine.ie/erddap/tabledap/IWBNetwork.json?station_id,time,WindDirection,WindSpeed,Gust," \
           "WaveHeight,WavePeriod,MeanWaveDirection&time>=2015-03-07T00:00:00Z"
-
-    ''' New Url 6 days in advance forecast excluding wind conditions
-
-
-       'http://erddap.marine.ie/erddap/tabledap/IMI-WaveBuoyForecast.json?time,longitude,latitude,stationID,significant_wave_height,mean_wave_period,mean_wave_direction&time>=2015-03-14T00:00:00Z'
-    '''
 
     r = requests.get(url)
     data = json.loads(r.content)
@@ -129,7 +108,7 @@ def get_station_m2_data(m2_data):
     return m2
 
 
-@app.route('/marine_tidal_data', methods=['GET'])
+@app.route('/surfs/api/v1.0/marine_tidal_data', methods=['GET'])
 def get_marine_inst_tidal_data():
 
     url = 'http://erddap2.marine.ie/erddap/tabledap/IrishNationalTideGaugeNetwork.json?time,station_id,Water_Level,' \
@@ -146,12 +125,12 @@ def get_spots():
 
     return jsonify(spots_array)
 
-
+'''
 @app.route('/main')
 def main():
 
     return 'Hello, World!'
-
+'''
 
 if __name__ == '__main__':
     app.run()
